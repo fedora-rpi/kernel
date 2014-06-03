@@ -23,6 +23,7 @@ Summary: The Linux kernel
 %endif
 
 # define buildid .local
+%define buildid .lr1
 
 # baserelease defines which build revision of this kernel version we're
 # building.  We used to call this fedora_build, but the magical name
@@ -115,6 +116,8 @@ Summary: The Linux kernel
 #
 # Cross compile requested?
 %define with_cross    %{?_with_cross:         1} %{?!_with_cross:        0}
+%define _build_arch arm
+%define _arch armv6hl
 #
 # build a release kernel on rawhide
 %define with_release   %{?_with_release:      1} %{?!_with_release:      0}
@@ -444,6 +447,9 @@ Source100: config-arm-generic
 Source101: config-armv7-generic
 Source102: config-armv7
 Source103: config-armv7-lpae
+
+Source104: config-armv6-generic
+Source105: config-armv6
 
 Source110: config-arm64
 
