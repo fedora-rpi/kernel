@@ -32,6 +32,7 @@ Summary: The Linux kernel
 # (Uncomment the '#' and both spaces below to set the buildid.)
 #
 # % define buildid .local
+%define buildid .lr1
 ###################################################################
 
 # The buildid can also be specified on the rpmbuild command line
@@ -151,6 +152,8 @@ Summary: The Linux kernel
 #
 # Cross compile requested?
 %define with_cross    %{?_with_cross:         1} %{?!_with_cross:        0}
+%define _build_arch arm
+%define _arch armv6hl
 #
 # build a release kernel on rawhide
 %define with_release   %{?_with_release:      1} %{?!_with_release:      0}
@@ -561,6 +564,9 @@ Source100: config-arm-generic
 Source101: config-armv7-generic
 Source102: config-armv7
 Source103: config-armv7-lpae
+
+Source104: config-armv6-generic
+Source105: config-armv6
 
 Source110: config-arm64
 
