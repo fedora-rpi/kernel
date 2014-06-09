@@ -1,3 +1,8 @@
+%ifarch armv6hl
+%define _build_arch arm
+%define _arch arm
+%endif
+
 # We have to override the new %%install behavior because, well... the kernel is special.
 %global __spec_install_pre %{___build_pre}
 
@@ -377,7 +382,7 @@ Summary: The Linux kernel
 %define kernel_image_elf 1
 %endif
 
-%ifarch %{arm}
+%ifarch %{arm} armv6hl
 %define all_arch_configs kernel-%{version}-arm*.config
 %define image_install_path boot
 %define asmarch arm
@@ -389,7 +394,7 @@ Summary: The Linux kernel
 %define kernel_mflags KALLSYMS_EXTRA_PASS=1
 # we only build headers/perf/tools on the base arm arches
 # just like we used to only build them on i386 for x86
-%ifnarch armv7hl
+%ifnarch armv7hl armv6hl
 %define with_headers 0
 %define with_perf 0
 %define with_tools 0
@@ -438,7 +443,7 @@ Summary: The Linux kernel
 %endif
 
 # Architectures we build tools/cpupower on
-%define cpupowerarchs %{ix86} x86_64 ppc ppc64 ppc64p7 %{arm} aarch64
+%define cpupowerarchs %{ix86} x86_64 ppc ppc64 ppc64p7 %{arm} armv6hl aarch64
 
 #
 # Packages that need to be installed before the kernel is, because the %%post
@@ -488,7 +493,7 @@ Version: %{rpmversion}
 Release: %{pkg_release}
 # DO NOT CHANGE THE 'ExclusiveArch' LINE TO TEMPORARILY EXCLUDE AN ARCHITECTURE BUILD.
 # SET %%nobuildarches (ABOVE) INSTEAD
-ExclusiveArch: noarch %{all_x86} x86_64 ppc ppc64 ppc64p7 s390 s390x %{arm} aarch64
+ExclusiveArch: noarch %{all_x86} x86_64 ppc ppc64 ppc64p7 s390 s390x %{arm} armv6hl aarch64
 ExclusiveOS: Linux
 
 %kernel_reqprovconf
@@ -1607,7 +1612,7 @@ BuildKernel() {
     %{make} -s ARCH=$Arch V=1 %{?_smp_mflags} $MakeTarget %{?sparse_mflags} %{?kernel_mflags}
     %{make} -s ARCH=$Arch V=1 %{?_smp_mflags} modules %{?sparse_mflags} || exit 1
 
-%ifarch %{arm} aarch64
+%ifarch %{arm} armv6hl aarch64
     %{make} -s ARCH=$Arch V=1 dtbs
     mkdir -p $RPM_BUILD_ROOT/%{image_install_path}/dtb-$KernelVer
     install -m 644 arch/$Arch/boot/dts/*.dtb $RPM_BUILD_ROOT/%{image_install_path}/dtb-$KernelVer/
@@ -1705,7 +1710,7 @@ BuildKernel() {
       cp -a --parents arch/%{asmarch}/include $RPM_BUILD_ROOT/lib/modules/$KernelVer/build/
     fi
     # include the machine specific headers for ARM variants, if available.
-%ifarch %{arm}
+%ifarch %{arm} armv6hl
     if [ -d arch/%{asmarch}/mach-${Flavour}/include ]; then
       cp -a --parents arch/%{asmarch}/mach-${Flavour}/include $RPM_BUILD_ROOT/lib/modules/$KernelVer/build/
     fi
@@ -2234,7 +2239,7 @@ fi
 %defattr(-,root,root)\
 /%{image_install_path}/%{?-k:%{-k*}}%{!?-k:vmlinuz}-%{KVERREL}%{?2:+%{2}}\
 /%{image_install_path}/.vmlinuz-%{KVERREL}%{?2:+%{2}}.hmac \
-%ifarch %{arm} aarch64\
+%ifarch %{arm} armv6hl aarch64\
 /%{image_install_path}/dtb-%{KVERREL}%{?2:+%{2}} \
 %endif\
 %attr(600,root,root) /boot/System.map-%{KVERREL}%{?2:+%{2}}\
