@@ -25,6 +25,7 @@ Summary: The Linux kernel
 %endif
 
 # % define buildid .local
+%define buildid .lr1
 
 # baserelease defines which build revision of this kernel version we're
 # building.  We used to call this fedora_build, but the magical name
@@ -680,6 +681,9 @@ Patch538: ALSA-hda-Add-dock-support-for-ThinkPad-T550.patch
 #CVE-2015-5156 rhbz 1243852 1266515
 Patch539: virtio-net-drop-NETIF_F_FRAGLIST.patch
 
+# Raspberry Pi
+Patch666: rpi.patch
+
 # END OF PATCH DEFINITIONS
 
 %endif
@@ -1322,7 +1326,7 @@ ApplyPatch silence-fbcon-logo.patch
 ApplyPatch Kbuild-Add-an-option-to-enable-GCC-VTA.patch
 
 # /dev/crash driver.
-ApplyPatch crash-driver.patch
+#ApplyPatch crash-driver.patch
 
 # crypto/
 
@@ -1453,8 +1457,8 @@ ApplyPatch vfs-Test-for-and-handle-paths-that-are-unreachable-f.patch
 ApplyPatch Initialize-msg-shm-IPC-objects-before-doing-ipc_addi.patch
 
 #rhbz 1266691
-ApplyPatch inet-fix-potential-deadlock-in-reqsk_queue_unlink.patch
-ApplyPatch inet-fix-race-in-reqsk_queue_unlink.patch
+#ApplyPatch inet-fix-potential-deadlock-in-reqsk_queue_unlink.patch
+#ApplyPatch inet-fix-race-in-reqsk_queue_unlink.patch
 
 #rhbz 1265978
 ApplyPatch si2168-Bounds-check-firmware.patch
@@ -1465,6 +1469,9 @@ ApplyPatch ALSA-hda-Add-dock-support-for-ThinkPad-T550.patch
 
 #CVE-2015-5156 rhbz 1243852 1266515
 ApplyPatch virtio-net-drop-NETIF_F_FRAGLIST.patch
+
+# Raspberry Pi 2
+ApplyPatch rpi.patch
 
 # END OF PATCH APPLICATIONS
 

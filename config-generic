@@ -5508,3 +5508,13 @@ CONFIG_POWERCAP=y
 
 # set in x86-generic presently
 # CONFIG_TOUCHSCREEN_GOODIX is not set
+
+# CONFIG_WL_MEDIATEK is not set
+# CONFIG_JOYSTICK_RPISENSE is not set
+# CONFIG_BRCM_CHAR_DRIVERS is not set
+# CONFIG_BCM2835_DEVGPIOMEM is not set
+# CONFIG_MFD_RPISENSE_CORE is not set
+# CONFIG_FB_RPISENSE is not set
+# CONFIG_USB_DWCOTG is not set
+# CONFIG_LEDS_TRIGGER_INPUT is not set
+# CONFIG_LIRC_RPI is not set
