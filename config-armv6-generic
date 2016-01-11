@@ -1,0 +1,531 @@
+# perl merge.pl /dev/null temp-armv6 arm >.config
+# make ARCH=arm olddefconfig
+# time cat .config |while read i; do if echo "$i" |grep -q "CONFIG"; then grep "^$i$" config-armv6 ; else echo "$i"; fi; done
+
+#
+# Automatically generated file; DO NOT EDIT.
+# Linux/arm 4.4.0 Kernel Configuration
+#
+CONFIG_ARM=y
+CONFIG_CHECKPOINT_RESTORE=y
+CONFIG_LBDAF=y
+
+#
+# CPU Core family selection
+#
+CONFIG_ARCH_MULTI_V6=y
+# CONFIG_ARCH_MULTI_V7 is not set
+
+#
+# Processor Features
+#
+CONFIG_ARM_THUMB=y
+# CONFIG_CPU_ICACHE_DISABLE is not set
+# CONFIG_CPU_DCACHE_DISABLE is not set
+# CONFIG_CPU_BPREDICT_DISABLE is not set
+# CONFIG_CACHE_L2X0 is not set
+CONFIG_ARM_DMA_MEM_BUFFERABLE=y
+# CONFIG_ARM_KERNMEM_PERMS is not set
+
+#
+# PCI host controller drivers
+#
+# CONFIG_PCI_LAYERSCAPE is not set
+# CONFIG_PCIE_ALTERA is not set
+
+#
+# Kernel Features
+#
+CONFIG_AEABI=y
+# CONFIG_OABI_COMPAT is not set
+# CONFIG_HIGHMEM is not set
+CONFIG_CPU_SW_DOMAIN_PAN=y
+# CONFIG_ARM_MODULE_PLTS is not set
+# CONFIG_UACCESS_WITH_MEMCPY is not set
+
+#
+# Boot options
+#
+CONFIG_ATAGS=y
+# CONFIG_DEPRECATED_PARAM_STRUCT is not set
+CONFIG_ZBOOT_ROM_TEXT=0
+CONFIG_ZBOOT_ROM_BSS=0
+# CONFIG_ARM_APPENDED_DTB is not set
+CONFIG_CMDLINE=""
+CONFIG_ATAGS_PROC=y
+CONFIG_ATAGS_PROC=y
+CONFIG_CRASH_DUMP=y
+
+#
+# CPU Power Management
+#
+
+#
+# CPU Frequency scaling
+#
+
+#
+# CPU frequency scaling drivers
+#
+CONFIG_CPUFREQ_DT=m
+# CONFIG_QORIQ_CPUFREQ is not set
+
+#
+# Floating point emulation
+#
+
+#
+# At least one emulation must be selected
+#
+CONFIG_VFP=y
+
+#
+# Power management options
+#
+# CONFIG_APM_EMULATION is not set
+
+#
+# Networking options
+#
+
+#
+# Classification
+#
+CONFIG_BPF_JIT=y
+
+#
+# CAN Device Drivers
+#
+# CONFIG_CAN_TI_HECC is not set
+# CONFIG_CAN_FLEXCAN is not set
+# CONFIG_CAN_RCAR is not set
+
+#
+# CAN SPI interfaces
+#
+# CONFIG_CAN_MCP251X is not set
+
+#
+# Near Field Communication (NFC) devices
+#
+# CONFIG_NFC_NCI_SPI is not set
+
+#
+# Device Drivers
+#
+
+#
+# Generic Driver Options
+#
+
+# CONFIG_BRCMSTB_GISB_ARB is not set
+# CONFIG_VEXPRESS_CONFIG is not set
+# CONFIG_MTD_AFS_PARTS is not set
+
+#
+# Self-contained MTD device drivers
+#
+# CONFIG_MTD_DATAFLASH is not set
+# CONFIG_MTD_SST25L is not set
+
+# CONFIG_MG_DISK is not set
+
+#
+# Misc devices
+#
+# CONFIG_TI_DAC7512 is not set
+# CONFIG_BMP085_SPI is not set
+# CONFIG_LATTICE_ECP3_CONFIG is not set
+
+#
+# EEPROM support
+#
+# CONFIG_EEPROM_AT25 is not set
+# CONFIG_EEPROM_93XX46 is not set
+
+# CONFIG_SENSORS_LIS3_SPI is not set
+
+# CONFIG_NET_VENDOR_CIRRUS is not set
+# CONFIG_DM9000 is not set
+# CONFIG_KS8851 is not set
+# CONFIG_NET_VENDOR_MICROCHIP is not set
+# CONFIG_AX88796 is not set
+
+# CONFIG_MDIO_BUS_MUX_GPIO is not set
+# CONFIG_MDIO_BUS_MUX_MMIOREG is not set
+# CONFIG_MICREL_KS8995MA is not set
+
+# CONFIG_LIBERTAS_SPI is not set
+# CONFIG_P54_SPI is not set
+
+# CONFIG_IEEE802154_AT86RF230 is not set
+# CONFIG_IEEE802154_MRF24J40 is not set
+
+#
+# Input device support
+#
+CONFIG_INPUT_MATRIXKMAP=m
+
+#
+# Input Device Drivers
+#
+CONFIG_KEYBOARD_MATRIX=m
+# CONFIG_TOUCHSCREEN_ADS7846 is not set
+# CONFIG_TOUCHSCREEN_AD7877 is not set
+# CONFIG_TOUCHSCREEN_TSC2005 is not set
+CONFIG_INPUT_GPIO_BEEPER=m
+CONFIG_INPUT_GPIO_TILT_POLLED=m
+
+#
+# Character devices
+#
+
+#
+# Serial drivers
+#
+# CONFIG_SERIAL_8250_EM is not set
+
+#
+# Non-8250 serial port support
+#
+# CONFIG_SERIAL_AMBA_PL010 is not set
+# CONFIG_SERIAL_MAX3100 is not set
+# CONFIG_SERIAL_MAX310X is not set
+# CONFIG_SERIAL_BCM63XX is not set
+# CONFIG_SERIAL_IFX6X60 is not set
+# CONFIG_SERIAL_STM32 is not set
+# CONFIG_HVC_DCC is not set
+
+CONFIG_SPI=y
+
+#
+# SPI Master Controller Drivers
+#
+# CONFIG_SPI_ALTERA is not set
+CONFIG_SPI_BITBANG=m
+# CONFIG_SPI_CADENCE is not set
+# CONFIG_SPI_GPIO is not set
+# CONFIG_SPI_FSL_SPI is not set
+# CONFIG_SPI_OC_TINY is not set
+# CONFIG_SPI_PL022 is not set
+# CONFIG_SPI_SC18IS602 is not set
+# CONFIG_SPI_XCOMM is not set
+# CONFIG_SPI_XILINX is not set
+# CONFIG_SPI_ZYNQMP_GQSPI is not set
+# CONFIG_SPI_DESIGNWARE is not set
+
+#
+# SPI Protocol Masters
+#
+CONFIG_SPI_SPIDEV=m
+# CONFIG_SPI_TLE62X0 is not set
+
+CONFIG_PINCTRL=y
+
+#
+# Pin controllers
+#
+CONFIG_PINMUX=y
+CONFIG_PINCONF=y
+# CONFIG_PINCTRL_AMD is not set
+# CONFIG_PINCTRL_SINGLE is not set
+
+#
+# Memory mapped GPIO drivers
+#
+# CONFIG_GPIO_EM is not set
+# CONFIG_GPIO_ZEVIO is not set
+
+#
+# I2C GPIO expanders
+#
+# CONFIG_GPIO_ADNP is not set
+
+#
+# SPI GPIO expanders
+#
+# CONFIG_GPIO_74X164 is not set
+# CONFIG_GPIO_MAX7301 is not set
+# CONFIG_GPIO_MC33880 is not set
+
+#
+# SPI or I2C GPIO expanders
+#
+# CONFIG_GPIO_MCP23S08 is not set
+
+#
+# 1-wire Slaves
+#
+CONFIG_GENERIC_ADC_BATTERY=m
+CONFIG_CHARGER_GPIO=m
+# CONFIG_POWER_RESET_BRCMSTB is not set
+CONFIG_POWER_RESET_SYSCON=y
+
+#
+# Native drivers
+#
+# CONFIG_SENSORS_AD7314 is not set
+# CONFIG_SENSORS_IIO_HWMON is not set
+# CONFIG_SENSORS_MAX1111 is not set
+# CONFIG_SENSORS_ADCXX is not set
+# CONFIG_SENSORS_LM70 is not set
+# CONFIG_SENSORS_NTC_THERMISTOR is not set
+# CONFIG_SENSORS_ADS7871 is not set
+# CONFIG_THERMAL is not set
+
+#
+# Multifunction device drivers
+#
+# CONFIG_MFD_DA9052_SPI is not set
+# CONFIG_MFD_MC13XXX_SPI is not set
+# CONFIG_EZX_PCAP is not set
+# CONFIG_MFD_PM8921_CORE is not set
+# CONFIG_MFD_TPS65912_SPI is not set
+# CONFIG_MFD_T7L66XB is not set
+# CONFIG_MFD_TC6387XB is not set
+# CONFIG_MFD_ARIZONA_SPI is not set
+# CONFIG_MFD_WM831X_SPI is not set
+
+#
+# Graphics support
+#
+
+#
+# I2C encoder or helper chips
+#
+# CONFIG_DRM_EXYNOS is not set
+# CONFIG_DRM_TILCDC is not set
+# CONFIG_DRM_FSL_DCU is not set
+
+#
+# Display Interface Bridges
+#
+# CONFIG_DRM_STI is not set
+
+#
+# Frame buffer Devices
+#
+
+#
+# Frame buffer hardware drivers
+#
+CONFIG_FB_SIMPLE=y
+# CONFIG_LCD_L4F00242T03 is not set
+# CONFIG_LCD_LMS283GF05 is not set
+# CONFIG_LCD_LTV350QV is not set
+# CONFIG_LCD_ILI922X is not set
+# CONFIG_LCD_ILI9320 is not set
+# CONFIG_LCD_TDO24M is not set
+# CONFIG_LCD_VGG2432A4 is not set
+# CONFIG_LCD_S6E63M0 is not set
+# CONFIG_LCD_LD9040 is not set
+# CONFIG_LCD_AMS369FG06 is not set
+# CONFIG_LCD_LMS501KF03 is not set
+# CONFIG_LCD_HX8357 is not set
+
+#
+# HD-Audio
+#
+# CONFIG_SND_ARM is not set
+# CONFIG_SND_SPI is not set
+
+#
+# Allwinner SoC Audio support
+#
+# CONFIG_SND_SUN4I_CODEC is not set
+
+#
+# CODEC drivers
+#
+# CONFIG_SND_SOC_AC97_CODEC is not set
+# CONFIG_SND_SOC_TAS571X is not set
+
+#
+# Miscellaneous USB options
+#
+CONFIG_USB_OTG=y
+# CONFIG_USB_OTG_BLACKLIST_HUB is not set
+
+#
+# USB Imaging devices
+#
+CONFIG_USB_MUSB_HDRC=m
+CONFIG_USB_MUSB_DUAL_ROLE=y
+
+#
+# MUSB DMA mode
+#
+# CONFIG_MUSB_PIO_ONLY is not set
+
+#
+# Platform Glue Driver Support
+#
+CONFIG_USB_DWC2=m
+# CONFIG_USB_DWC2_DEBUG is not set
+# CONFIG_USB_DWC2_TRACK_MISSED_SOFS is not set
+
+#
+# USB Physical Layer drivers
+#
+CONFIG_USB_GPIO_VBUS=m
+# CONFIG_USB_ULPI is not set
+CONFIG_USB_GADGET=m
+# CONFIG_USB_GADGET_DEBUG is not set
+# CONFIG_USB_GADGET_DEBUG_FILES is not set
+# CONFIG_USB_GADGET_DEBUG_FS is not set
+CONFIG_USB_GADGET_VBUS_DRAW=100
+CONFIG_USB_GADGET_STORAGE_NUM_BUFFERS=2
+
+#
+# USB Peripheral Controller
+#
+# CONFIG_USB_FUSB300 is not set
+# CONFIG_USB_FOTG210_UDC is not set
+# CONFIG_USB_R8A66597 is not set
+# CONFIG_USB_PXA27X is not set
+# CONFIG_USB_MV_UDC is not set
+# CONFIG_USB_MV_U3D is not set
+# CONFIG_USB_M66592 is not set
+# CONFIG_USB_BDC_UDC is not set
+# CONFIG_USB_AMD5536UDC is not set
+# CONFIG_USB_NET2272 is not set
+# CONFIG_USB_NET2280 is not set
+# CONFIG_USB_GOKU is not set
+# CONFIG_USB_EG20T is not set
+# CONFIG_USB_GADGET_XILINX is not set
+CONFIG_USB_DUMMY_HCD=m
+CONFIG_USB_CONFIGFS=m
+CONFIG_USB_CONFIGFS_SERIAL=y
+CONFIG_USB_CONFIGFS_ACM=y
+CONFIG_USB_CONFIGFS_OBEX=y
+CONFIG_USB_CONFIGFS_NCM=y
+CONFIG_USB_CONFIGFS_ECM=y
+CONFIG_USB_CONFIGFS_ECM_SUBSET=y
+# CONFIG_USB_CONFIGFS_RNDIS is not set
+CONFIG_USB_CONFIGFS_EEM=y
+CONFIG_USB_CONFIGFS_MASS_STORAGE=y
+# CONFIG_USB_CONFIGFS_F_LB_SS is not set
+# CONFIG_USB_CONFIGFS_F_FS is not set
+# CONFIG_USB_CONFIGFS_F_UAC1 is not set
+# CONFIG_USB_CONFIGFS_F_UAC2 is not set
+# CONFIG_USB_CONFIGFS_F_MIDI is not set
+# CONFIG_USB_CONFIGFS_F_HID is not set
+# CONFIG_USB_CONFIGFS_F_UVC is not set
+# CONFIG_USB_CONFIGFS_F_PRINTER is not set
+CONFIG_USB_GADGETFS=m
+
+#
+# MMC/SD/SDIO Card Drivers
+#
+
+#
+# MMC/SD/SDIO Host Controller Drivers
+#
+CONFIG_MMC_SPI=m
+# CONFIG_MMC_DW is not set
+
+#
+# LED drivers
+#
+CONFIG_LEDS_GPIO=m
+# CONFIG_LEDS_DAC124S085 is not set
+CONFIG_LEDS_PWM=m
+
+#
+# LED driver for blink(1) USB RGB LED is under Special HID drivers (HID_THINGM)
+#
+CONFIG_LEDS_SYSCON=y
+
+#
+# LED Triggers
+#
+CONFIG_LEDS_TRIGGER_CPU=y
+
+# CONFIG_EDAC is not set
+
+#
+# SPI RTC drivers
+#
+# CONFIG_RTC_DRV_M41T93 is not set
+# CONFIG_RTC_DRV_M41T94 is not set
+# CONFIG_RTC_DRV_DS1305 is not set
+# CONFIG_RTC_DRV_DS1347 is not set
+# CONFIG_RTC_DRV_DS1390 is not set
+# CONFIG_RTC_DRV_MAX6902 is not set
+# CONFIG_RTC_DRV_R9701 is not set
+# CONFIG_RTC_DRV_RS5C348 is not set
+# CONFIG_RTC_DRV_DS3234 is not set
+# CONFIG_RTC_DRV_PCF2123 is not set
+# CONFIG_RTC_DRV_RX4581 is not set
+
+#
+# on-CPU RTC drivers
+#
+# CONFIG_RTC_DRV_PL030 is not set
+# CONFIG_RTC_DRV_PL031 is not set
+
+#
+# DMA Devices
+#
+# CONFIG_AMBA_PL08X is not set
+# CONFIG_PL330_DMA is not set
+
+# CONFIG_VFIO_PLATFORM_AMDXGBE_RESET is not set
+
+#
+# Android
+#
+# CONFIG_CHROME_PLATFORMS is not set
+
+#
+# Common Clock Framework
+#
+# CONFIG_CLK_QORIQ is not set
+
+#
+# SOC (System On Chip) specific Drivers
+#
+# CONFIG_SOC_BRCMSTB is not set
+CONFIG_PM_DEVFREQ=y
+
+#
+# DEVFREQ Governors
+#
+CONFIG_DEVFREQ_GOV_SIMPLE_ONDEMAND=y
+CONFIG_DEVFREQ_GOV_PERFORMANCE=y
+CONFIG_DEVFREQ_GOV_POWERSAVE=y
+CONFIG_DEVFREQ_GOV_USERSPACE=y
+
+#
+# DEVFREQ Drivers
+#
+CONFIG_PM_DEVFREQ_EVENT=y
+
+#
+# Extcon Device Drivers
+#
+# CONFIG_EXTCON_ADC_JACK is not set
+
+#
+# Runtime Testing
+#
+CONFIG_ARM_UNWIND=y
+# CONFIG_DEBUG_USER is not set
+CONFIG_DEBUG_LL=y
+# CONFIG_DEBUG_LL_UART_8250 is not set
+# CONFIG_DEBUG_LL_UART_PL01X is not set
+CONFIG_DEBUG_LL_INCLUDE="debug/pl01x.S"
+CONFIG_DEBUG_UART_PHYS=0x20201000
+CONFIG_DEBUG_UART_VIRT=0xf0201000
+# CONFIG_ARM_KPROBES_TEST is not set
+
+#
+# Certificates for signature checking
+#
+# CONFIG_CRYPTO_SHA1_ARM is not set
+# CONFIG_CRYPTO_AES_ARM is not set
+
+#
+# Library routines
+#
+CONFIG_XZ_DEC_ARMTHUMB=y
