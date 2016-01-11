@@ -23,6 +23,7 @@ Summary: The Linux kernel
 %endif
 
 # define buildid .local
+%define buildid .pi2
 
 # baserelease defines which build revision of this kernel version we're
 # building.  We used to call this fedora_build, but the magical name
@@ -289,7 +290,7 @@ Summary: The Linux kernel
 %define kernel_mflags KALLSYMS_EXTRA_PASS=1
 # we only build headers/perf/tools on the base arm arches
 # just like we used to only build them on i386 for x86
-%ifnarch armv7hl
+%ifnarch armv6hl armv7hl
 %define with_headers 0
 %define with_perf 0
 %define with_tools 0
@@ -448,6 +449,9 @@ Source100: config-arm-generic
 Source101: config-armv7-generic
 Source102: config-armv7
 Source103: config-armv7-lpae
+
+Source104: config-armv6-generic
+Source105: config-armv6
 
 Source110: config-arm64
 
