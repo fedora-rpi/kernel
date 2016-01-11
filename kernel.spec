@@ -23,6 +23,7 @@ Summary: The Linux kernel
 %endif
 
 # define buildid .local
+%define buildid .lr1
 
 # baserelease defines which build revision of this kernel version we're
 # building.  We used to call this fedora_build, but the magical name
@@ -115,6 +116,8 @@ Summary: The Linux kernel
 #
 # Cross compile requested?
 %define with_cross    %{?_with_cross:         1} %{?!_with_cross:        0}
+%define _build_arch arm
+%define _arch armv6hl
 #
 # build a release kernel on rawhide
 %define with_release   %{?_with_release:      1} %{?!_with_release:      0}
@@ -289,7 +292,7 @@ Summary: The Linux kernel
 %define kernel_mflags KALLSYMS_EXTRA_PASS=1
 # we only build headers/perf/tools on the base arm arches
 # just like we used to only build them on i386 for x86
-%ifnarch armv7hl
+%ifnarch armv6hl
 %define with_headers 0
 %define with_perf 0
 %define with_tools 0
@@ -448,6 +451,9 @@ Source100: config-arm-generic
 Source101: config-armv7-generic
 Source102: config-armv7
 Source103: config-armv7-lpae
+
+Source104: config-armv6-generic
+Source105: config-armv6
 
 Source110: config-arm64
 
@@ -1617,7 +1623,7 @@ BuildKernel %make_target %kernel_image
 %endif
 
 %global perf_make \
-  make -s EXTRA_CFLAGS="${RPM_OPT_FLAGS}" LDFLAGS="%{__global_ldflags}" %{?cross_opts} %{?_smp_mflags} -C tools/perf V=1 NO_PERF_READ_VDSO32=1 NO_PERF_READ_VDSOX32=1 WERROR=0 NO_LIBUNWIND=1 HAVE_CPLUS_DEMANGLE=1 NO_GTK2=1 NO_STRLCPY=1 NO_BIONIC=1 prefix=%{_prefix}
+  make -s EXTRA_CFLAGS="${RPM_OPT_FLAGS}" LDFLAGS="%{__global_ldflags}" %{?cross_opts} %{?_smp_mflags} -C tools/perf V=1 NO_PERF_READ_VDSO32=1 NO_PERF_READ_VDSOX32=1 WERROR=0 NO_LIBUNWIND=1 HAVE_CPLUS_DEMANGLE=1 NO_GTK2=1 NO_STRLCPY=1 NO_BIONIC=1 NO_LIBBPF=1 prefix=%{_prefix}
 %if %{with_perf}
 # perf
 %{perf_make} DESTDIR=$RPM_BUILD_ROOT all
