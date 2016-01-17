@@ -23,7 +23,7 @@ Summary: The Linux kernel
 %endif
 
 # define buildid .local
-%define buildid .lr2
+%define buildid .pi1
 
 # baserelease defines which build revision of this kernel version we're
 # building.  We used to call this fedora_build, but the magical name
